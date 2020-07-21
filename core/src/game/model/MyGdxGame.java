@@ -2,7 +2,6 @@ package game.model;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -11,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.Random;
@@ -22,7 +20,6 @@ import static game.model.Fruit.fruitCircle;
 public class MyGdxGame extends ApplicationAdapter {
     SpriteBatch batch;
     Sprite backgroundSprite;
-    Sprite fruitSprite;
 
     Texture imgFruit;
     Texture imgPlatform;
@@ -93,8 +90,6 @@ public class MyGdxGame extends ApplicationAdapter {
         }
 
         glyphLayout.setText(font,"score " + score);
-
-       // positionXFruit = new Random().nextInt(450);
 
         batch.begin();
 

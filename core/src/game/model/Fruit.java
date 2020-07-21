@@ -23,7 +23,6 @@ public class Fruit extends GameObject {
         super(texture, x, y, width, height);
 
         fruitMove = new FruitMove(bounds);
-
     }
 
     /**

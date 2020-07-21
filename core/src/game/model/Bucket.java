@@ -5,8 +5,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import game.controller.BucketController;
 
-import javax.swing.text.rtf.RTFEditorKit;
-
 public class Bucket extends GameObject{
     /**
      * границы обьекта
