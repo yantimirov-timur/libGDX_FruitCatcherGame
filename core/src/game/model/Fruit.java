@@ -5,9 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Circle;
 
 public class Fruit extends GameObject {
-    FruitMove fruitMove;
-
-    static Circle fruitCircle = new Circle();
+   private final FruitMove fruitMove;
+    public static Circle fruitCircle = new Circle();
 
     /**
      * границы обьекта
@@ -22,7 +21,7 @@ public class Fruit extends GameObject {
     public Fruit(Texture texture, float x, float y, float width, float height) {
         super(texture, x, y, width, height);
 
-        fruitMove = new FruitMove(bounds);
+        fruitMove = new FruitMove();
     }
 
     /**

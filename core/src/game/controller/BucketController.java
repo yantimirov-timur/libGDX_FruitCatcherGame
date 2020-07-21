@@ -3,10 +3,11 @@ package game.controller;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Polygon;
-import game.model.MyGdxGame;
+
+import game.model.Logic;
 
 public class BucketController {
-    Polygon bucketBounds;
+    private final Polygon bucketBounds;
 
     public BucketController(Polygon bucketBounds) {
         this.bucketBounds = bucketBounds;
@@ -16,11 +17,11 @@ public class BucketController {
 
     public void handle() {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            if (MyGdxGame.positionXBucket != 540)
-                MyGdxGame.positionXBucket += speed;
+            if (Logic.positionXBucket != 540)
+                Logic.positionXBucket += speed;
         } else if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            if (MyGdxGame.positionXBucket != 0)
-                MyGdxGame.positionXBucket -= speed;
+            if (Logic.positionXBucket != 0)
+                Logic.positionXBucket -= speed;
         }
 
         bucketBounds.setPosition(bucketBounds.getX() * speed, bucketBounds.getY() * speed);
