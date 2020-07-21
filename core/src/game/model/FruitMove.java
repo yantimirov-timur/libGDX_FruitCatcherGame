@@ -21,12 +21,7 @@ public class FruitMove {
     Random random = new Random();
 
     public void checkCollisionWithBucket() {
-
-        /**if (Fruit.fruitCircle.y == 25f) {
-            MyGdxGame.positionY = 500f;
-            MyGdxGame.positionXFruit = random.nextInt(450);
-            speed = 0f;
-        }*/
+        MyGdxGame.positionXFruit = random.nextInt(450);
     }
 
     public void handle() {
@@ -35,7 +30,7 @@ public class FruitMove {
         } else {
             MyGdxGame.positionY -= speed;
         }
-        checkCollisionWithBucket();
+     //  checkCollisionWithBucket();
 
     }
 

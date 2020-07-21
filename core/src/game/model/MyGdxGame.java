@@ -11,7 +11,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+
+import java.util.Random;
 
 import static game.model.Bucket.bucketRectangle;
 import static game.model.Fruit.fruitCircle;
@@ -47,11 +50,10 @@ public class MyGdxGame extends ApplicationAdapter {
 
         Vector2 center = new Vector2();
 
-        center.x=fruitCircle.x+50;
-        center.y=fruitCircle.y+50;
+        center.x = fruitCircle.x + 50;
+        center.y = fruitCircle.y + 50;
 
-        fruitCircle = new Circle(center,50);
-
+        fruitCircle = new Circle(center, 50);
     }
 
     public static float positionY = 400f;
@@ -60,6 +62,12 @@ public class MyGdxGame extends ApplicationAdapter {
     public static float positionXFruit = 0F;
 
     BitmapFont font;
+
+    int score = 0;
+
+    int randomPlace(){
+        return new Random().nextInt(450);
+    }
 
     @Override
     public void render() {
@@ -75,15 +83,18 @@ public class MyGdxGame extends ApplicationAdapter {
         bucketRectangle.setPosition(positionXBucket, bucket.getBounds().getY());
 
         font = new BitmapFont();
-
-        int a=2;
-
         if (Intersector.overlaps(fruitCircle, bucketRectangle)) {
-          //  a++;
-            glyphLayout.setText(font, "90");
+            score += 50;
+            positionY = 450;
+            positionXFruit =  randomPlace();
+        } else if (positionY <= 0) {
+            positionY = 450;
+            positionXFruit = randomPlace();
         }
 
-      //  glyphLayout.setText(font, "score");
+        glyphLayout.setText(font,"score " + score);
+
+       // positionXFruit = new Random().nextInt(450);
 
         batch.begin();
 
