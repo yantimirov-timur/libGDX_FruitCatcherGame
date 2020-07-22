@@ -23,21 +23,22 @@ public class MyGdxGame extends ApplicationAdapter {
     private static Texture imgFruit;
     private static Texture imgPlatform;
     private static Texture imgBucket;
+    private static Texture imgBomb;
 
     public static Texture getImgFruit() {
         return imgFruit;
     }
-
     public static Texture getImgBucket() {
         return imgBucket;
     }
-
     public static Texture getImgPlatform() {
         return imgPlatform;
     }
-
     public static SpriteBatch getBatch() {
         return batch;
+    }
+    public static Texture getImgBomb() {
+        return imgBomb;
     }
 
     private BitmapFont font;
@@ -51,6 +52,7 @@ public class MyGdxGame extends ApplicationAdapter {
         imgFruit = new Texture("fruit.png");
         imgPlatform = new Texture("platform.png");
         imgBucket = new Texture("backet.png");
+        imgBomb = new Texture("bomb.png");
 
         Texture background = new Texture("back.jpg");
         backgroundSprite = new Sprite(background);
