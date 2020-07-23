@@ -13,7 +13,7 @@ public class BucketController {
         this.bucketBounds = bucketBounds;
     }
 
-    float speed = 5f;
+    float speed = 1.5f;
 
     public void handle() {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {

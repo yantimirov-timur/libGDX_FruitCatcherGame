@@ -1,4 +1,4 @@
-package view;
+package game.view;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -8,12 +8,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Vector2;
 import game.model.Logic;
 
-import static game.model.Fruit.fruitCircle;
 import static game.model.Logic.score;
 
 public class MyGdxGame extends ApplicationAdapter {
@@ -51,7 +47,7 @@ public class MyGdxGame extends ApplicationAdapter {
         batch = new SpriteBatch();
         imgFruit = new Texture("fruit.png");
         imgPlatform = new Texture("platform.png");
-        imgBucket = new Texture("backet.png");
+        imgBucket = new Texture("bucket.png");
         imgBomb = new Texture("bomb.png");
 
         Texture background = new Texture("back.jpg");

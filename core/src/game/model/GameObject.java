@@ -23,6 +23,10 @@ public abstract class GameObject {
         bounds.setOrigin(width / 2f, height / 2f);
     }
 
+    /**
+     * Отрисовка
+     * @param spriteBatch
+     */
     public void draw(SpriteBatch spriteBatch) {
         obj.setPosition(bounds.getX(), bounds.getY());
         obj.setRotation(bounds.getRotation());
