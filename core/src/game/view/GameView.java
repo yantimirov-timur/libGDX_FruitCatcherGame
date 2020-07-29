@@ -1,7 +1,8 @@
 package game.view;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -10,9 +11,11 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import game.model.Logic;
 
+import java.lang.management.GarbageCollectorMXBean;
+
 import static game.model.Logic.score;
 
-public class MyGdxGame extends ApplicationAdapter {
+public class GameView implements Screen {
     private static SpriteBatch batch;
     private Sprite backgroundSprite;
 
@@ -42,8 +45,9 @@ public class MyGdxGame extends ApplicationAdapter {
     private final Logic logic = new Logic();
     private final GlyphLayout glyphLayout = new GlyphLayout();
 
+
     @Override
-    public void create() {
+    public void show() {
         batch = new SpriteBatch();
         imgFruit = new Texture("fruit.png");
         imgPlatform = new Texture("platform.png");
@@ -56,11 +60,11 @@ public class MyGdxGame extends ApplicationAdapter {
         backgroundSprite.setPosition(0, 0f);
         backgroundSprite.setSize(700, 500);
 
-       logic.create();
+        logic.create();
     }
 
     @Override
-    public void render() {
+    public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         font = new BitmapFont();
@@ -73,6 +77,26 @@ public class MyGdxGame extends ApplicationAdapter {
         font.draw(batch, glyphLayout, 550, 450);
 
         batch.end();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
     }
 
     @Override

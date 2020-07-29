@@ -4,7 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
-import game.view.MyGdxGame;
+import game.view.GameView;
 
 import java.util.Random;
 
@@ -55,10 +55,10 @@ public class Logic extends ApplicationAdapter {
      */
     @Override
     public void render() {
-        platform = new CurrentObject(MyGdxGame.getImgPlatform(), -20, -20, 700, 50);
-        bucket = new CurrentObject(MyGdxGame.getImgBucket(), positionXBucket, 15, 100, 100);
-        bomb = new CurrentObject(MyGdxGame.getImgBomb(), positionXBomb, positionYBomb, 50, 50);
-        fruit = new CurrentObject(MyGdxGame.getImgFruit(), positionXFruit, positionYFruit, 50, 50);
+        platform = new CurrentObject(GameView.getImgPlatform(), -20, -20, 700, 50);
+        bucket = new CurrentObject(GameView.getImgBucket(), positionXBucket, 15, 100, 100);
+        bomb = new CurrentObject(GameView.getImgBomb(), positionXBomb, positionYBomb, 50, 50);
+        fruit = new CurrentObject(GameView.getImgFruit(), positionXFruit, positionYFruit, 50, 50);
 
         if (Intersector.overlaps(fruitCircle, bucketRectangle)) {
             score += 50;
@@ -76,10 +76,10 @@ public class Logic extends ApplicationAdapter {
             positionXBomb = randomPlace();
         }
 
-        bomb.draw(MyGdxGame.getBatch());
-        fruit.draw(MyGdxGame.getBatch());
-        platform.draw(MyGdxGame.getBatch());
-        bucket.draw(MyGdxGame.getBatch());
+        bomb.draw(GameView.getBatch());
+        fruit.draw(GameView.getBatch());
+        platform.draw(GameView.getBatch());
+        bucket.draw(GameView.getBatch());
 
         fruitCircle.setPosition(positionXFruit, positionYFruit);
         bombCircle.setPosition(positionXBomb, positionYBomb);
