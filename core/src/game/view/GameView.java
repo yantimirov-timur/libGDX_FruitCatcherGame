@@ -45,7 +45,6 @@ public class GameView implements Screen {
     private final Logic logic = new Logic();
     private final GlyphLayout glyphLayout = new GlyphLayout();
 
-
     @Override
     public void show() {
         batch = new SpriteBatch();
@@ -96,7 +95,6 @@ public class GameView implements Screen {
 
     @Override
     public void hide() {
-
     }
 
     @Override

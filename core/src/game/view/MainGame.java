@@ -2,14 +2,33 @@ package game.view;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MainGame extends Game {
-    private Screen gameScreen;
+   // Screen gameScreen = new GameView();
+//    Screen menuScreen = new MenuView();
+
+
+    SpriteBatch batch;
+    BitmapFont font;
 
     @Override
     public void create() {
-        gameScreen = new GameView();
+        batch = new SpriteBatch();
+        font = new BitmapFont();
 
-        setScreen(gameScreen);
+        this.setScreen(new MenuView(this));
+
+    }
+
+    @Override
+    public void render() {
+        super.render();
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
     }
 }
