@@ -1,6 +1,5 @@
 package game.view;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -11,9 +10,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import game.model.Logic;
 
-import java.lang.management.GarbageCollectorMXBean;
+import java.util.Objects;
 
-import static game.model.Logic.score;
+import static game.model.Logic.getScore;
+
 
 public class GameView implements Screen {
     private static SpriteBatch batch;
@@ -40,7 +40,7 @@ public class GameView implements Screen {
         return imgBomb;
     }
 
-    private BitmapFont font;
+    private BitmapFont scoreFont;
 
     private final Logic logic = new Logic();
     private final GlyphLayout glyphLayout = new GlyphLayout();
@@ -66,14 +66,14 @@ public class GameView implements Screen {
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        font = new BitmapFont();
-        glyphLayout.setText(font, "score " + score);
+        scoreFont = new BitmapFont();
+        glyphLayout.setText(scoreFont, "score " + getScore());
 
         batch.begin();
 
         backgroundSprite.draw(batch);
         logic.render();
-        font.draw(batch, glyphLayout, 550, 450);
+        scoreFont.draw(batch, glyphLayout, 550, 450);
 
         batch.end();
     }
@@ -103,6 +103,32 @@ public class GameView implements Screen {
         imgFruit.dispose();
         imgPlatform.dispose();
         imgBucket.dispose();
-        font.dispose();
+        scoreFont.dispose();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameView gameView = (GameView) o;
+        return Objects.equals(backgroundSprite, gameView.backgroundSprite) &&
+                Objects.equals(scoreFont, gameView.scoreFont) &&
+                Objects.equals(logic, gameView.logic) &&
+                Objects.equals(glyphLayout, gameView.glyphLayout);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(backgroundSprite, scoreFont, logic, glyphLayout);
+    }
+
+    @Override
+    public String toString() {
+        return "GameView{" +
+                "backgroundSprite=" + backgroundSprite +
+                ", scoreFont=" + scoreFont +
+                ", logic=" + logic +
+                ", glyphLayout=" + glyphLayout +
+                '}';
     }
 }

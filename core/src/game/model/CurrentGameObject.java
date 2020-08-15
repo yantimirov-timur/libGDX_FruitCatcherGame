@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import game.controller.BucketController;
 
-public class CurrentObject extends GameObject {
+public class CurrentGameObject extends GameObject implements Cloneable {
     //границы падающих и двигающихся обьектов
     public static Circle bombCircle = new Circle();
     public static Circle fruitCircle = new Circle();
@@ -18,11 +18,12 @@ public class CurrentObject extends GameObject {
     //скорость движения обьектов
     private float speedFruit = 1f;
     private float speedBomb = 1.6f;
+    private float speedBomb1 = 1.6f;
 
     /**
      * границы обьекта
      */
-    public CurrentObject(Texture texture, float x, float y, float width, float height) {
+    public CurrentGameObject(Texture texture, float x, float y, float width, float height) {
         super(texture, x, y, width, height);
         bucketController = new BucketController(bounds);
     }
@@ -44,9 +45,11 @@ public class CurrentObject extends GameObject {
     public void handleBomb() {
         if (Logic.positionYBomb <= 0) {
             speedBomb = 0f;
-        } else {
-            Logic.positionYBomb -= speedBomb;
+        } else if (Logic.positionYBomb1 <= 0) {
+            speedBomb1 = 0f;
         }
+        Logic.positionYBomb -= speedBomb;
+      //  Logic.positionYBomb1 -= speedBomb1;
     }
 
     /**
