@@ -45,8 +45,6 @@ public class CurrentGameObject extends GameObject implements Cloneable {
     public void handleBomb() {
         if (Logic.positionYBomb <= 0) {
             speedBomb = 0f;
-        } else if (Logic.positionYBomb1 <= 0) {
-            speedBomb1 = 0f;
         }
         Logic.positionYBomb -= speedBomb;
       //  Logic.positionYBomb1 -= speedBomb1;
